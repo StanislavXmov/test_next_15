@@ -1,5 +1,6 @@
 "use client";
 
+import { Cookie } from "../cookie/cookie";
 import { usePagination } from "./hooks";
 
 const mockData = [
@@ -45,6 +46,7 @@ export function PaginationWrapper() {
         </tbody>
       </table>
       {pagination}
+      <Cookie />
     </div>
   );
 }
