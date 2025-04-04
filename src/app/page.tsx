@@ -26,6 +26,7 @@ export default function Home() {
       <div className="flex gap-4">
         <Link href={"./wysiwyg"}>Wysiwyg</Link>
         <Link href={"./pagination"}>Pagination</Link>
+        <Link href={"./streaming"}>Streaming</Link>
       </div>
     </div>
   );

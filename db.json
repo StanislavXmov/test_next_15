@@ -1,0 +1,64 @@
+{
+  "todos": [
+    {
+      "id": "1",
+      "text": "Learn Next.js Basics",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "text": "Implement JSON Server",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "text": "Master Render-as-you-fetch Pattern",
+      "completed": false
+    },
+    {
+      "id": "4",
+      "text": "Create User Authentication System",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "text": "Design Responsive Layout",
+      "completed": false
+    },
+    {
+      "id": "6",
+      "text": "Write Unit Tests",
+      "completed": false
+    },
+    {
+      "id": "7",
+      "text": "Optimize Performance",
+      "completed": false
+    },
+    {
+      "id": "8",
+      "text": "Deploy to Production",
+      "completed": false
+    }
+  ],
+  "translations": {
+    "en": {
+      "addTodo": "Add Todo",
+      "todoList": "Todo List",
+      "loading": "Loading...",
+      "remove": "Remove"
+    },
+    "es": {
+      "addTodo": "Añadir Tarea",
+      "todoList": "Lista de Tareas",
+      "loading": "Cargando...",
+      "remove": "Eliminar"
+    },
+    "fr": {
+      "addTodo": "Ajouter une tâche",
+      "todoList": "Liste des tâches",
+      "loading": "Chargement...",
+      "remove": "Supprimer"
+    }
+  }
+}
