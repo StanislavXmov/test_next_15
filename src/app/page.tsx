@@ -27,6 +27,7 @@ export default function Home() {
         <Link href={"./wysiwyg"}>Wysiwyg</Link>
         <Link href={"./pagination"}>Pagination</Link>
         <Link href={"./streaming"}>Streaming</Link>
+        <Link href={"./server-components"}>ServerComponents</Link>
       </div>
     </div>
   );
