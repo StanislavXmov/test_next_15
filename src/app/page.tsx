@@ -23,11 +23,12 @@ export default function Home() {
           priority
         />
       </main>
-      <div className="flex gap-4">
+      <div className="flex gap-1 sm:flex-row flex-col sm:gap-4">
         <Link href={"./wysiwyg"}>Wysiwyg</Link>
         <Link href={"./pagination"}>Pagination</Link>
         <Link href={"./streaming"}>Streaming</Link>
         <Link href={"./server-components"}>ServerComponents</Link>
+        <Link href={"./tests"}>Tests</Link>
       </div>
     </div>
   );
