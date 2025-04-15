@@ -29,6 +29,7 @@ export default function Home() {
         <Link href={"./streaming"}>Streaming</Link>
         <Link href={"./server-components"}>ServerComponents</Link>
         <Link href={"./tests"}>Tests</Link>
+        <Link href={"./table"}>Table</Link>
       </div>
     </div>
   );
