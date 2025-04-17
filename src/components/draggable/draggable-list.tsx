@@ -26,7 +26,13 @@ const fn =
           immediate: false,
         };
 
-export function DraggableList({ items }: { items: string[] }) {
+export function DraggableList({
+  items,
+  cb,
+}: {
+  items: string[];
+  cb?: (columns: string[]) => void;
+}) {
   const order = useRef(items.map((_, index) => index));
 
   const [springs, api] = useSprings(items.length, fn(order.current));
@@ -44,7 +50,9 @@ export function DraggableList({ items }: { items: string[] }) {
 
   const handleSetOrder = () => {
     const orders = order.current.map((i) => items[i]);
-    console.log(orders);
+    if (cb) {
+      cb(orders);
+    }
   };
 
   return (
@@ -75,6 +83,7 @@ export function DraggableList({ items }: { items: string[] }) {
               touchAction: "none",
               background: "white",
               border: "1px solid #6a7282",
+              userSelect: "none",
             }}
           >
             {items[i]}

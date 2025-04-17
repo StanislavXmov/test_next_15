@@ -2,6 +2,7 @@
 
 import {
   ColumnDef,
+  ColumnOrderState,
   flexRender,
   getCoreRowModel,
   useReactTable,
@@ -24,6 +25,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import React from "react";
+import { DraggableList } from "@/components/draggable/draggable-list";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -36,41 +38,72 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
+  const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>([
+    "username",
+    "name",
+    "email",
+    "phone",
+    "website",
+  ]);
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
-    state: { columnVisibility },
+    onColumnOrderChange: setColumnOrder,
+    state: { columnVisibility, columnOrder },
   });
+
+  const handleSetOrder = (columns: string[]) => {
+    table.setColumnOrder(columns);
+  };
 
   return (
     <div className="rounded-md border w-full">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button className="border border-gray-500 rounded-sm px-2">
-            Columns
-          </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          {table
-            .getAllColumns()
-            .filter((column) => column.getCanHide())
-            .map((column) => {
-              return (
-                <DropdownMenuCheckboxItem
-                  key={column.id}
-                  className="capitalize"
-                  checked={column.getIsVisible()}
-                  onCheckedChange={(value) => column.toggleVisibility(!!value)}
-                >
-                  {column.id}
-                </DropdownMenuCheckboxItem>
-              );
-            })}
-        </DropdownMenuContent>
-      </DropdownMenu>
+      <div className="flex gap-4">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="border border-gray-500 rounded-sm px-2">
+              Columns
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start">
+            {table
+              .getAllColumns()
+              .filter((column) => column.getCanHide())
+              .map((column) => {
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    className="capitalize"
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
+                  >
+                    {column.id}
+                  </DropdownMenuCheckboxItem>
+                );
+              })}
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="border border-gray-500 rounded-sm px-2">
+              Order
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start">
+            <DraggableList
+              key={columnOrder.toString()}
+              items={columnOrder}
+              cb={handleSetOrder}
+            />
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
