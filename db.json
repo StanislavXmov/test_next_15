@@ -292,5 +292,30 @@
         "bs": "target end-to-end models"
       }
     }
-  ]
+  ],
+  "get-response": {
+    "success": true,
+    "data": {
+      "id": "test-id",
+      "title": "test-title",
+      "description": "test-description",
+      "tasks": [
+        {
+          "id": "task-id-1",
+          "type": "test",
+          "title": "task-title"
+        },
+        {
+          "id": "task-id-2",
+          "type": "input",
+          "title": "task-2-title"
+        },
+        {
+          "id": "task-id-3",
+          "type": "mathing",
+          "title": "task-3-title"
+        }
+      ]
+    }
+  }
 }

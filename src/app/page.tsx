@@ -30,6 +30,7 @@ export default function Home() {
         <Link href={"./server-components"}>ServerComponents</Link>
         <Link href={"./tests"}>Tests</Link>
         <Link href={"./table"}>Table</Link>
+        <Link href={"./api-page"}>Api</Link>
       </div>
     </div>
   );
