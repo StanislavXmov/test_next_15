@@ -32,6 +32,7 @@ export default function Home() {
         <Link href={"./table"}>Table</Link>
         <Link href={"./api-page"}>Api</Link>
         <Link href={"./form"}>Form</Link>
+        <Link href={"./search-form"}>Search Form</Link>
       </div>
     </div>
   );
