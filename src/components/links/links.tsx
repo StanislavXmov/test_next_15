@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { z } from "zod";
+import queryString from "query-string";
 
 const querySchema = z
   .object({
@@ -40,9 +41,14 @@ const querySchema = z
     };
   });
 
+const sectionsSchema = z.object({
+  sections_id: z.array(z.string().transform((val) => Number(val))).catch([]),
+});
+
 export function Links() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const { replace } = useRouter();
 
   const searchParamsTest = new URLSearchParams();
 
@@ -59,10 +65,34 @@ export function Links() {
 
   console.log({ paramsObject, params });
 
+  const createQuery = () => {
+    const sections_id = [1, 20, 13, 32];
+    const q = queryString.stringify(
+      { sections_id },
+      {
+        arrayFormat: "bracket",
+      }
+    );
+    console.log(q);
+    replace(`${pathname}?${q}`);
+  };
+
+  const parseQuery = () => {
+    const sections_id = queryString.parse(searchParams.toString(), {
+      arrayFormat: "bracket",
+    });
+    console.log(sections_id);
+    const result = sectionsSchema.parse(sections_id);
+    console.log(result);
+    result.sections_id.forEach((id) => console.log("sections_id", id));
+  };
+
   return (
     <div className="flex flex-col gap-4 justify-center mt-10 mb-10 px-10">
       Search: {searchParams.toString()}
       <Link href={`${pathname}?${searchParamsTest.toString()}`}>Link</Link>
+      <button onClick={createQuery}>Create section query</button>
+      <button onClick={parseQuery}>Parse section query</button>
     </div>
   );
 }

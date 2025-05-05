@@ -33,6 +33,7 @@ export default function Home() {
         <Link href={"./api-page"}>Api</Link>
         <Link href={"./form"}>Form</Link>
         <Link href={"./search-form"}>Search Form</Link>
+        <Link href={"./query"}>Query</Link>
       </div>
     </div>
   );
