@@ -6,10 +6,11 @@ import {
   TableCell,
   TableRow,
   TextRun,
-  WidthType
+  WidthType,
 } from "docx";
+import { Data } from "../types";
 
-export function create(data) {
+export function create(data: Data) {
   return [
     new Paragraph({
       children: [
@@ -20,7 +21,7 @@ export function create(data) {
           font: "Times New Roman",
         }),
       ],
-      spacing: {after: 200},
+      spacing: { after: 200 },
       alignment: AlignmentType.CENTER,
     }),
     // Информация о заказчике
@@ -32,7 +33,7 @@ export function create(data) {
           font: "Times New Roman",
         }),
       ],
-      spacing: {after: 100},
+      spacing: { after: 100 },
     }),
     // Информация о поставщике
     new Paragraph({
@@ -43,7 +44,7 @@ export function create(data) {
           font: "Times New Roman",
         }),
       ],
-      spacing: {after: 100},
+      spacing: { after: 100 },
     }),
     new Paragraph({
       children: [
@@ -53,7 +54,7 @@ export function create(data) {
           font: "Times New Roman",
         }),
       ],
-      spacing: {after: 100},
+      spacing: { after: 100 },
     }),
     new Paragraph({
       children: [
@@ -63,7 +64,7 @@ export function create(data) {
           font: "Times New Roman",
         }),
       ],
-      spacing: {after: 100},
+      spacing: { after: 100 },
     }),
     new Paragraph({
       children: [
@@ -73,8 +74,7 @@ export function create(data) {
           font: "Times New Roman",
         }),
       ],
-      spacing: {after: 200},
+      spacing: { after: 200 },
     }),
   ];
 }
-
