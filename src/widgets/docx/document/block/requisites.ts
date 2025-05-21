@@ -90,12 +90,13 @@ function createSectionContent(
 export function create(data: Data) {
   return [
     new Table({
-      width: { size: 100, type: WidthType.PERCENTAGE },
+      // width: { size: 100, type: WidthType.PERCENTAGE },
+      columnWidths: [6815, 6815],
       rows: [
         new TableRow({
           children: [
             new TableCell({
-              width: { size: 50, type: WidthType.PERCENTAGE },
+              // width: { size: 50, type: WidthType.PERCENTAGE },
               children: createSectionContent(
                 data.customer,
                 "РЕКВИЗИТЫ ЗАКАЗЧИКА"
@@ -103,7 +104,7 @@ export function create(data: Data) {
               verticalAlign: "top",
             }),
             new TableCell({
-              width: { size: 50, type: WidthType.PERCENTAGE },
+              // width: { size: 50, type: WidthType.PERCENTAGE },
               children: createSectionContent(
                 data.supplier,
                 "РЕКВИЗИТЫ ПОСТАВЩИКА"
