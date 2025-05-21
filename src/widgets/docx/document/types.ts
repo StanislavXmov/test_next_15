@@ -39,6 +39,20 @@ export type RequisitesData = {
       bik: string;
     };
   };
+  proceduresInfo: {
+    registrationNumber: string;
+    cteatedDt: string;
+    ikzCode: string;
+    proceduresName: string;
+    maxSum: string;
+    impossibleDetermine: string;
+    supplierOffer: string;
+    contractPrice: string;
+    isPreference?: string;
+    savingMoney?: string;
+    percentageSavings?: string;
+    contractProvisionValue?: string;
+  };
 };
 
 export type ItemsData = {

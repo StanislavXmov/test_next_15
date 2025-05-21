@@ -5,6 +5,7 @@ import { create as createItemBlock } from "./block/items/items";
 import { create as createBaseBlock } from "./block/base";
 import { create as createRequisitesBlock } from "./block/requisites";
 import { create as createFinalBlock } from "./block/final";
+import { create as createPurchaseBlock } from "./block/purchase";
 
 import { getData } from "./dataProvider";
 
@@ -22,6 +23,7 @@ function generateDocument() {
         },
         children: [
           ...createBaseBlock(data),
+          ...createPurchaseBlock(data),
           ...createRequisitesBlock(data),
           ...createItemBlock({ ...data, itemsType: "medicine" }),
           ...createFinalBlock(data),

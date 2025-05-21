@@ -39,6 +39,16 @@ const requisitesData = {
       bik: "044525678",
     },
   },
+  proceduresInfo: {
+    registrationNumber: "4833450157801242256",
+    cteatedDt: "2025-01-01",
+    ikzCode: "201444446000444446000411111910111400",
+    proceduresName: "Кошачий корм",
+    maxSum: "1000",
+    impossibleDetermine: "0",
+    supplierOffer: "1000",
+    contractPrice: "1000",
+  },
 };
 
 const itemsData = {

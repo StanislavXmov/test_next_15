@@ -46,10 +46,10 @@ function createHeadingRow() {
             alignment: AlignmentType.CENTER, // Для выравнивания всего абзаца
           }),
         ],
-        shading: {
-          fill: "D3D3D3",
-          type: ShadingType.SOLID,
-        },
+        // shading: {
+        //   fill: "D3D3D3",
+        //   type: ShadingType.SOLID,
+        // },
         margins: {
           top: verticalMargin,
           bottom: verticalMargin,

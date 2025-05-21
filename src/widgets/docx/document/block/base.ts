@@ -17,29 +17,41 @@ export function create(data: Data) {
         new TextRun({
           text: "СВЕДЕНИЯ ДЛЯ ЗАПОЛНЕНИЯ КОНТРАКТА",
           bold: true,
-          size: 24,
+          size: 32,
           font: "Times New Roman",
         }),
       ],
-      spacing: { after: 200 },
+      spacing: { after: 800 },
       alignment: AlignmentType.CENTER,
     }),
     // Информация о заказчике
     new Paragraph({
       children: [
         new TextRun({
-          text: `Полное наименование заказчика: ${data.customerName}`,
+          bold: true,
+          text: `Полное наименование заказчика:`,
           size: 24,
           font: "Times New Roman",
         }),
       ],
       spacing: { after: 100 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          text: data.customerName,
+          size: 24,
+          font: "Times New Roman",
+        }),
+      ],
+      spacing: { after: 400 },
     }),
     // Информация о поставщике
     new Paragraph({
       children: [
         new TextRun({
-          text: `Полное наименование поставщика: ${data.supplierOrganizationName}`,
+          bold: true,
+          text: `Полное наименование поставщика:`,
           size: 24,
           font: "Times New Roman",
         }),
@@ -49,6 +61,17 @@ export function create(data: Data) {
     new Paragraph({
       children: [
         new TextRun({
+          text: data.supplierOrganizationName,
+          size: 24,
+          font: "Times New Roman",
+        }),
+      ],
+      spacing: { after: 400 },
+    }),
+    new Paragraph({
+      children: [
+        new TextRun({
+          bold: true,
           text: `Сведения о лице поставщика, имеющем право действовать без доверенности:`,
           size: 24,
           font: "Times New Roman",
@@ -59,7 +82,13 @@ export function create(data: Data) {
     new Paragraph({
       children: [
         new TextRun({
-          text: `ФИО: ${data.supplierMemberName}`,
+          bold: true,
+          text: `ФИО: `,
+          size: 24,
+          font: "Times New Roman",
+        }),
+        new TextRun({
+          text: data.supplierMemberName,
           size: 24,
           font: "Times New Roman",
         }),
@@ -69,12 +98,18 @@ export function create(data: Data) {
     new Paragraph({
       children: [
         new TextRun({
-          text: `Должность: ${data.supplierPosition}`,
+          bold: true,
+          text: `Должность: `,
+          size: 24,
+          font: "Times New Roman",
+        }),
+        new TextRun({
+          text: data.supplierPosition,
           size: 24,
           font: "Times New Roman",
         }),
       ],
-      spacing: { after: 200 },
+      spacing: { after: 800 },
     }),
   ];
 }
