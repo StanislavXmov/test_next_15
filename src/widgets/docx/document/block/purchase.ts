@@ -54,39 +54,39 @@ const createRows = (data: Data) => {
     rows.push(row);
   };
 
-  createRow("Номер извещения", data.proceduresInfo.registrationNumber);
-  createRow("ИКЗ", data.proceduresInfo.ikzCode);
+  createRow("Номер извещения", data.procedures.registrationNumber);
+  createRow("ИКЗ", data.procedures.ikzCode);
   createRow(
     "Дата размещения извещения в ЕИС",
-    new Date(data.proceduresInfo.cteatedDt).toLocaleDateString()
+    new Date(data.procedures.cteatedDt).toLocaleDateString()
   );
-  createRow("Наименование закупки", data.proceduresInfo.proceduresName);
+  createRow("Наименование закупки", data.procedures.proceduresName);
   createRow(
     "Преимущество по национальному режиму",
-    data.proceduresInfo.isPreference
+    data.procedures.isPreference
   );
   createRow("Закупка СМП/СОНО", undefined);
   createRow(
     "Размер обеспечения контракта",
-    data.proceduresInfo.contractProvisionValue
+    data.procedures.contractProvisionValue
   );
   createRow(
     "НМЦК",
-    !Boolean(data.proceduresInfo.impossibleDetermine)
-      ? data.proceduresInfo.maxSum
+    !Boolean(data.procedures.impossibleDetermine)
+      ? data.procedures.maxSum
       : undefined
   );
   createRow(
     "Максимальная сумма цен единиц товара, работы, услуги",
-    Boolean(data.proceduresInfo.impossibleDetermine)
-      ? data.proceduresInfo.maxSum
+    Boolean(data.procedures.impossibleDetermine)
+      ? data.procedures.maxSum
       : undefined
   );
-  createRow("Цена победителя", data.proceduresInfo.supplierOffer);
+  createRow("Цена победителя", data.procedures.supplierOffer);
   createRow("Информация о преимуществах по ст. 28, 29", undefined);
-  createRow("Цена контракта", data.proceduresInfo.contractPrice);
-  createRow("Экономия, %", data.proceduresInfo.percentageSavings);
-  createRow("Экономия, руб.", data.proceduresInfo.savingMoney);
+  createRow("Цена контракта", data.procedures.contractPrice);
+  createRow("Экономия, %", data.procedures.percentageSavings);
+  createRow("Экономия, руб.", data.procedures.savingMoney);
 
   return rows;
 };

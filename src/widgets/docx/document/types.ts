@@ -39,7 +39,7 @@ export type RequisitesData = {
       bik: string;
     };
   };
-  proceduresInfo: {
+  procedures: {
     registrationNumber: string;
     cteatedDt: string;
     ikzCode: string;
