@@ -20,6 +20,7 @@
     "@use-gesture/react": "latest",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "docx": "^9.5.0",
     "docxtemplater": "^3.62.2",
     "file-saver": "^2.0.5",
     "json-server": "0.17.4",
