@@ -1,5 +1,5 @@
 import { Data } from "../../types";
-import { create as createNotMedicineItemsBlock } from "./medicines";
+import { create as createNotMedicineItemsBlock } from "./product";
 
 export function create(
   data: Data & { itemsType: "product" | "serviceOrWork" | "medicine" }
