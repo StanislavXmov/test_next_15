@@ -72,7 +72,19 @@ function createItemFirstRow(item: Data["items"][number]) {
         rowSpan: rowSpan,
       }),
       new TableCell({
-        children: [new Paragraph({ ...itemCellStyle, text: item.count })],
+        children: [new Paragraph({ ...itemCellStyle, text: "item.unitPrice" })],
+        rowSpan: rowSpan,
+      }),
+      new TableCell({
+        children: [
+          new Paragraph({ ...itemCellStyle, text: "item.totalPrice" }),
+        ],
+        rowSpan: rowSpan,
+      }),
+      new TableCell({
+        children: [
+          new Paragraph({ ...itemCellStyle, text: "item.totalPriceWithVat" }),
+        ],
         rowSpan: rowSpan,
       }),
     ],
