@@ -45,16 +45,20 @@ export const getData = () => {
           ],
           tradeMark: "Бренд 1",
           certificateNameMedicalProduct: "certificateNameMedicalProduct",
-          registryNumbers: [
-            {
-              registryNumber: "registryNumber",
-              registryType: "registryType",
-              totalScore: "totalScore",
-            },
-          ],
           unitPrice: "unitPrice",
           totalPrice: "totalPrice",
           totalPriceWithVat: "totalPriceWithVat",
+          registryNumbers: [
+            {
+              registryNumber: "7587465476945",
+              registryType: "Реестр евразийской промышленной продукции",
+              totalScore: "10101",
+            },
+            {
+              registryNumber: "7580465476945",
+              registryType: "Реестр евразийского ПО",
+            },
+          ],
         },
       ],
     },

@@ -71,6 +71,11 @@ export type ItemsData = {
       isImpossibilityProhibition: string;
       reasonImpossibilityProhibition: string;
     };
+    registryNumbers: {
+      registryNumber: string;
+      registryType: string;
+      totalScore?: string;
+    }[];
   }[];
 };
 

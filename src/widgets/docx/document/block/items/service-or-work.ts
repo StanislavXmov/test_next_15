@@ -11,7 +11,8 @@ import {
 import { Data } from "../../types";
 import {
   createHeadingRow,
-  getContractPurchaseObjectsInfo,
+  getForeignPurchaseObjects,
+  getRegistryNumber,
   itemCellStyle,
 } from "../../utils";
 
@@ -37,7 +38,7 @@ function createItemFirstRow(item: Data["items"][number]) {
         children: [
           new Paragraph({
             ...itemCellStyle,
-            text: getContractPurchaseObjectsInfo(item.restrictions),
+            text: getForeignPurchaseObjects(item.restrictions),
           }),
         ],
         margins: { top: 100, bottom: 100, left: 100, right: 100 },
@@ -55,11 +56,11 @@ function createItemFirstRow(item: Data["items"][number]) {
         ],
       }),
       new TableCell({
-        children: [new Paragraph({ ...itemCellStyle, text: item.trademark })],
+        children: [new Paragraph({ ...itemCellStyle, text: item.country })],
         rowSpan: rowSpan,
       }),
       new TableCell({
-        children: [new Paragraph({ ...itemCellStyle, text: item.country })],
+        children: [...item.registryNumbers.map((n) => getRegistryNumber(n))],
         rowSpan: rowSpan,
       }),
       new TableCell({

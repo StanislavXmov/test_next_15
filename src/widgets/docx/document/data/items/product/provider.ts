@@ -31,6 +31,7 @@ export const getData = () => {
           reasonImpossibilityProhibition:
             item.restrictions.reasonImpossibilityProhibition,
         },
+        registryNumbers: proposal.registryNumbers,
       };
 
       itemsData.push(itemRowData);
