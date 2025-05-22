@@ -64,6 +64,13 @@ export type ItemsData = {
     vat: string;
     measure: string;
     count: string;
+    restrictions: {
+      isProhibitionForeignPurchaseObjects: string;
+      isRestrictForeignPurchaseObjects: string;
+      isPreferenceRFPurchaseObjects: string;
+      isImpossibilityProhibition: string;
+      reasonImpossibilityProhibition: string;
+    };
   }[];
 };
 

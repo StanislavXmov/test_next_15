@@ -9,7 +9,7 @@ import { create as createPurchaseBlock } from "./block/purchase";
 
 import { getData } from "./dataProvider";
 
-function generateDocument() {
+function generateDocument(itemsType: "product" | "serviceOrWork" | "medicine") {
   const data = getData();
   return new Document({
     sections: [
@@ -25,7 +25,7 @@ function generateDocument() {
           ...createBaseBlock(data),
           ...createPurchaseBlock(data),
           ...createRequisitesBlock(data),
-          ...createItemBlock({ ...data, itemsType: "medicine" }),
+          ...createItemBlock({ ...data, itemsType }),
           ...createFinalBlock(data),
         ],
       },
@@ -33,8 +33,10 @@ function generateDocument() {
   });
 }
 
-export const generateDocx = async () => {
-  let document = generateDocument();
+export const generateDocx = async (
+  itemsType: "product" | "serviceOrWork" | "medicine"
+) => {
+  let document = generateDocument(itemsType);
   Packer.toBlob(document).then((buffer) => {
     saveAs(buffer, "output.docx");
   });

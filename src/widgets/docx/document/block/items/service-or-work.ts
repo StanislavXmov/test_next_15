@@ -9,16 +9,23 @@ import {
   WidthType,
 } from "docx";
 import { Data } from "../../types";
-import { createHeadingRow, itemCellStyle } from "../../utils";
+import {
+  createHeadingRow,
+  getContractPurchaseObjectsInfo,
+  itemCellStyle,
+} from "../../utils";
 
 const headings = [
+  { text: "Информация о нац. режиме" },
   { text: "Наименование ТРУ" },
   { text: "Характеристики объекта закупки" },
-  { text: "Товарный знак" },
   { text: "Страна происхождения" },
+  { text: "Реестровые номера" },
   { text: "НДС" },
-  { text: "Ед. измерения" },
-  { text: "Количество" },
+  { text: "Количество, ед. измерения" },
+  { text: "Цена за ед. изм. руб." },
+  { text: "Стоимость" },
+  { text: "Стоимость с НДС" },
 ];
 
 function createItemFirstRow(item: Data["items"][number]) {
@@ -27,8 +34,17 @@ function createItemFirstRow(item: Data["items"][number]) {
   return new TableRow({
     children: [
       new TableCell({
-        children: [new Paragraph({ ...itemCellStyle, text: item.name })],
+        children: [
+          new Paragraph({
+            ...itemCellStyle,
+            text: getContractPurchaseObjectsInfo(item.restrictions),
+          }),
+        ],
         margins: { top: 100, bottom: 100, left: 100, right: 100 },
+        rowSpan: rowSpan,
+      }),
+      new TableCell({
+        children: [new Paragraph({ ...itemCellStyle, text: item.name })],
         rowSpan: rowSpan,
       }),
       new TableCell({
@@ -105,7 +121,18 @@ export function create(data: Data) {
     }),
     new Table({
       width: { size: 100, type: WidthType.PERCENTAGE },
-      columnWidths: [3000, 3000, 1500, 1500, 1000, 1000],
+      columnWidths: [
+        1363 * 1.5,
+        1363,
+        1363 * 1.5,
+        1363,
+        1363,
+        1363 / 2,
+        1363 / 2,
+        1363,
+        1363,
+        1363,
+      ],
       rows: [createHeadingRow(headings), ...createItemRowSet(data.items)],
     }),
   ];
