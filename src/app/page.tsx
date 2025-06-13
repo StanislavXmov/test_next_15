@@ -34,6 +34,7 @@ export default function Home() {
         <Link href={"./form"}>Form</Link>
         <Link href={"./search-form"}>Search Form</Link>
         <Link href={"./query"}>Query</Link>
+        <Link href={"./pdf"}>Pdf</Link>
       </div>
     </div>
   );
