@@ -30,7 +30,7 @@
     "lodash.clamp": "4.0.3",
     "lucide-react": "^0.487.0",
     "luxon": "^3.6.1",
-    "next": "15.2.4",
+    "next": "^15.3.5",
     "pizzip": "^3.2.0",
     "query-string": "^9.1.2",
     "react": "^19.0.0",
@@ -50,7 +50,13 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
+    "msw": "^2.10.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }
