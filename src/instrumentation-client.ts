@@ -1,5 +1,5 @@
-import { worker } from "./mock/browser";
+// import { worker } from "./mock/browser";
 
-console.log(worker);
+// console.log(worker);
 
-worker.start();
+// worker.start();
